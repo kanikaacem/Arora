@@ -17,7 +17,7 @@ const Header = () => {
     const TabComponent = () => {
         return (
             <Container className="tabs-section d-flex justify-content-between align-items-center p-2">
-                <Link to="" className="tab-link">shop now</Link>
+                <Link to="/product-listing" className="tab-link">shop now</Link>
                 <Link to="" className="tab-link">men</Link>
                 <Link to="" className="tab-link">women</Link>
                 <Link to="" className="tab-link">accessories</Link>
@@ -27,26 +27,9 @@ const Header = () => {
             </Container>
         )
     }
-    return (<section className="header-section">
+    return (<section className="header-section" style={{ position: "sticky", top: 0, zIndex: 3834, background: "#fff" }}>
         {/* Top Header Wrapper */}
-        <Container fluid className="desktop-header-sticky d-none d-md-block">
-            {/* <Container fluid style={{ background: "#eee" }}>
-                <Container>
-                    <div class="topWrapper p-2 d-flex justify-content-between">
-                        <div className="left-menus d-flex gap-4">
-                            <Link to="" className="menu-link">Offers</Link>
-                            <Link to="" className="menu-link">Facebook</Link>
-                            <Link to="" className="menu-link">Download App</Link>
-                            <Link to="" className="menu-link">Tribe Membership</Link>
-                        </div>
-                        <div className="right-menus d-flex gap-4">
-                            <Link to="" className="menu-link">Contact Us</Link>
-                            <Link to="" className="menu-link">Track Order</Link>
-                        </div>
-                    </div>
-                </Container>
-            </Container> */}
-            {/* Main Header */}
+        <Container fluid className="desktop-header d-none d-md-block" >
             <Container fluid style={{ borderBottom: "2px solid #eee" }}>
                 <Container>
                     <div className="mainHeaderWrapper d-flex justify-content-between align-items-center">
@@ -60,33 +43,13 @@ const Header = () => {
                         <div className="Menus col-8">
                             <TabComponent />
                         </div>
-                        {/* <div className="col-3 d-flex gap-4 align-items-center justify-content-end">
-                            <Link to="" className="menu-link">
-                                <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Search</Tooltip>}>
-                                    <FIoIosSearch />
-                                </OverlayTrigger></Link>
-                            <Link to="" className="menu-link">
-                                <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Login</Tooltip>}>
-                                    <IoMdPerson />
-                                </OverlayTrigger>
-                            </Link>
-                            <Link to="" className="menu-link">
-                                <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Wishlist</Tooltip>}>
-                                    <IoIosHeartEmpty />
-                                </OverlayTrigger>
-                            </Link>
-                            <Link to="" className="menu-link">
-                                <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Cart</Tooltip>}>
-                                    <IoMdCart />
-                                </OverlayTrigger>
-                            </Link>
-                        </div> */}
+
                     </div>
                 </Container>
             </Container>
         </Container>
 
-        <Container fluid className="mobile-header-sticky d-block d-md-none p-2 d-flex justify-content-between align-items-center" style={{
+        <Container fluid className="mobile-header d-block d-md-none p-2 d-flex justify-content-between align-items-center" style={{
             boxShadow: "0 2px 10px rgba(0, 0, 0, .08)",
             height: "56px"
         }}>

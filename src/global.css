@@ -196,3 +196,9 @@
 .react-multiple-carousel__arrow::before {
     color: #ffa800 !important;
 }
+
+/*Product listing page*/
+.product-sorter {
+    border: none !important;
+    outline: none !important;
+}
