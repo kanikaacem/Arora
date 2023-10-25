@@ -3,7 +3,7 @@ import { Container, Offcanvas, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 // import { FIoIosSearch, IoMdPerson, IoIosHeartEmpty, IoMdCart } from "react-icons/io";
-
+import Signup from "../Signup/Signup";
 const Header = () => {
     const [mobileMenu, setMobileMenu] = useState(false);
     const handleMobileMenuOpen = () => {
@@ -29,6 +29,7 @@ const Header = () => {
     }
     return (<section className="header-section" style={{ position: "sticky", top: 0, zIndex: 3834, background: "#fff" }}>
         {/* Top Header Wrapper */}
+        <Signup />
         <Container fluid className="desktop-header d-none d-md-block" >
             <Container fluid style={{ borderBottom: "2px solid #eee" }}>
                 <Container>
