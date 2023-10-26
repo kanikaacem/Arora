@@ -1,5 +1,5 @@
 * {
-    font-family: 'Jost', sans-serif;
+    font-family: 'Jost', sans-serif !important;
 }
 
 /* Sticky Header */
@@ -159,7 +159,7 @@ a{
 
 /* Product Name ,blog title color change */
 .productName:hover,
-.blog-data:hover {
+.blog-data:hover .registerLogin:hover {
     color: #ffa800
 }
 
@@ -288,3 +288,41 @@ a{
 
   }
   
+/*Modal Border radius */
+.modal-content {
+    border-radius: 0px;
+}
+
+.form-input {
+    border: 1px solid #c8c8c8;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+}
+
+.form-input-section label {
+    color: #9d9b9b;
+}
+
+.mandatory {
+    color: #e02b27;
+}
+
+.highlightText:hover {
+    color: #ffa800;
+    cursor: pointer
+}
+
+.close-icon {
+    position: absolute;
+    top: -19px;
+    right: -16px;
+    background: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}

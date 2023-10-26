@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import {CiSearch} from "react-icons/ci";
 import {BsPerson,BsStar,BsCart} from "react-icons/bs";
 import {GiHamburgerMenu} from "react-icons/gi";
+// import { FIoIosSearch, IoMdPerson, IoIosHeartEmpty, IoMdCart } from "react-icons/io";
+import Signup from "../Signup/Signup";
 const Header = () => {
     const [mobileMenu, setMobileMenu] = useState(false);
     const handleMobileMenuOpen = () => {
@@ -86,6 +88,7 @@ const Header = () => {
     }
     return (<section className="header-section" >
         {/* Top Header Wrapper */}
+        <Signup />
         <Container fluid className="desktop-header d-none d-md-block" >
             <Container fluid >
                 <Container>
