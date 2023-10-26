@@ -8,6 +8,7 @@ import {GiHamburgerMenu} from "react-icons/gi";
 // import { FIoIosSearch, IoMdPerson, IoIosHeartEmpty, IoMdCart } from "react-icons/io";
 import Signup from "../Signup/Signup";
 const Header = () => {
+    const [openForm,setOpenForm] = useState(false);
     const [mobileMenu, setMobileMenu] = useState(false);
     const handleMobileMenuOpen = () => {
         setMobileMenu(true);
@@ -69,6 +70,7 @@ const Header = () => {
         )
     }
 
+    const handleOpenForm = () => setOpenForm(true);
     const UserActions = () =>{
        return( 
        <div className="user-actions d-flex gap-md-4 gap-2">
@@ -76,7 +78,7 @@ const Header = () => {
            <CiSearch className="icon"/>
        </OverlayTrigger>
        <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Sign In</Tooltip>}>
-           <BsPerson className="icon"/>
+           <BsPerson onClick={handleOpenForm} className="icon"/>
        </OverlayTrigger>
        <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">My Wishlist</Tooltip>}>
            <BsStar className="icon"/>
@@ -88,7 +90,7 @@ const Header = () => {
     }
     return (<section className="header-section" >
         {/* Top Header Wrapper */}
-        <Signup />
+        <Signup openForm={openForm} setOpenForm={setOpenForm} />
         <Container fluid className="desktop-header d-none d-md-block" >
             <Container fluid >
                 <Container>
