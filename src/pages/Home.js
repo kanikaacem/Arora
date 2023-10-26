@@ -1,11 +1,11 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Container, Carousel as BCarousel } from "react-bootstrap";
 // import { Link } from "react-router-dom";
 import Header from "../components/common/Header";
 import Footer from "../components/common/Footer";
 import Category from "../components/common/Category";
-import Product from "../components/common/Product";
+import Product from "../components/ProductListing/Product";
 import SectionHeading from '../components/common/SectionHeading';
 import Testimonial from '../components/Home/Testimonial';
 import Blog from "../components/Home/Blog";
@@ -72,7 +72,7 @@ const Home = () => {
                     {[1, 2, 3].map((item) => {
                         return (<BCarousel.Item key={item} className="w-100">
                             <img
-                                class="image"
+                                className="image"
                                 src="https://www.ethnicplus.in/media/mageplaza/bannerslider/banner/image/1/0/10_8.jpg"
                                 alt="banner_name"
                                 width="100%"
@@ -83,14 +83,14 @@ const Home = () => {
             </Container>
             {/* Second section */}
             <Container className="d-flex flex-md-row flex-column gap-4 my-3 align-items-center ">
-                <div class="col-md-3 col-12 d-flex flex-md-column flex-row gap-3">
+                <div className="col-md-3 col-12 d-flex flex-md-column flex-row gap-3">
                     <Category />
                     <Category />
                 </div>
                 <div className="col-md-6 col-12">
                     <Category />
                 </div>
-                <div class="col-md-3 col-12 d-flex flex-md-column flex-row gap-3">
+                <div className="col-md-3 col-12 d-flex flex-md-column flex-row gap-3">
                     <Category />
                     <Category />
 
@@ -114,9 +114,9 @@ const Home = () => {
             {/* fourth Section */}
             <Container className="my-3 d-flex justify-content-center">
                 <div className="row">
-                    {[1, 2].map((item) => {
+                    {[1, 2].map((item,index) => {
                         return (
-                            <div className="col-md-6 col-12">
+                            <div className="col-md-6 col-12" key={index}>
                                 <Link to="">
                                     <div className="productImageContainer">
                                         <img src="https://www.ethnicplus.in/media/wysiwyg/16-01-23_1.jpg"

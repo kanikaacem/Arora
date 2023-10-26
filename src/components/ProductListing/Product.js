@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Button, Badge, OverlayTrigger, Tooltip } from "react-bootstrap";
-
+import { Rating } from 'react-simple-star-rating'
+import { useNavigate } from "react-router-dom";
 const Product = () => {
+    const navigate = useNavigate();
     const [isHovered, setIsHovered] = useState(false);
 
     const handleMouseEnter = () => {
@@ -17,17 +19,25 @@ const Product = () => {
             style={{ position: "relative" }}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
+            onClick={() =>navigate("/product-description")}
         >
             <div className="productImageContainer">
                 <img className="productImage"
                     src="https://www.ethnicplus.in/media/catalog/product/cache/c8dd8ab41cc505e943026004bfd0a7b6/s/l/sl-rs-greensaree_3_.jpg"
-                    alt="Image" />
+                    alt="Image" 
+                    loading="lazy"/>
             </div>
             <div className="productDetails d-flex flex-column gap-2 my-2">
                 <strong>
-                    <a href="" className="productName"> Marvelous Black Plain Silk Ready-Made Crop Top Palazzo With Jack
+                    <a href="/product-description" className="productName"> Marvelous Black Plain Silk Ready-Made Crop Top Palazzo With Jack
                     </a>
                 </strong>
+                <div className="ratings-and-reviews d-flex gap-2 align-items-center">
+                    <Rating initialValue="3"
+                    readonly={true}
+                    size="20px"/>
+                    <span>11 </span>
+                </div>
                 <strong className="productPrice">
                     Rs. 23,000
                 </strong>

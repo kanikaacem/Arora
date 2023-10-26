@@ -1,11 +1,12 @@
 import { useState } from "react";
 import Header from "../components/common/Header";
 import Footer from "../components/common/Footer";
-import Product from "../components/common/Product";
-import { Container, Pagination } from "react-bootstrap";
+import Product from "../components/ProductListing/Product";
+import ProductFilter from "../components/ProductListing/ProductFilter";
+import { Container, Pagination ,Accordion } from "react-bootstrap";
 const ProductListing = () => {
     let productList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61]
-    let [productContainerWidth, setProductContainerWidth] = useState(385);
+    let [productContainerWidth, setProductContainerWidth] = useState(380);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 20;
     const totalPages = Math.ceil(productList?.length / itemsPerPage);
@@ -35,10 +36,10 @@ const ProductListing = () => {
                 width="100%" />
         </Container>
         <Container className="d-flex justify-content-center" style={{ maxWidth: "1600px" }}>
-            <div className="row">
+            <div className="row w-100">
                 <div className="product-filter col-3">
-                    Filter
-
+                    <p className="my-4" style={{borderBottom:"1px solid #ededef",fontSize:"20px"}}><strong>Filter</strong>  </p>
+                    <ProductFilter/>
                 </div>
                 <div className="all-products-section col-9 ">
                     <div className="product-actions d-flex justify-content-between my-4">

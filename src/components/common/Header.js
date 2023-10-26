@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Container, Offcanvas, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-// import { FIoIosSearch, IoMdPerson, IoIosHeartEmpty, IoMdCart } from "react-icons/io";
-
+import {CiSearch} from "react-icons/ci";
+import {BsPerson,BsStar,BsCart} from "react-icons/bs";
+import {GiHamburgerMenu} from "react-icons/gi";
 const Header = () => {
     const [mobileMenu, setMobileMenu] = useState(false);
     const handleMobileMenuOpen = () => {
@@ -14,23 +15,79 @@ const Header = () => {
     }
 
     // Tabs Component
-    const TabComponent = () => {
+    const HeaderMenus = () => {
+        const [activeSubMenu, setActiveSubMenu] = useState(null);
+
+        const handleMenuHover = (submenuId) => {
+          setActiveSubMenu(submenuId);
+        };
+      
+        const handleMenuLeave = () => {
+          setActiveSubMenu(null);
+        };
         return (
             <Container className="tabs-section d-flex justify-content-between align-items-center p-2">
-                <Link to="/product-listing" className="tab-link">shop now</Link>
-                <Link to="" className="tab-link">men</Link>
-                <Link to="" className="tab-link">women</Link>
-                <Link to="" className="tab-link">accessories</Link>
-                <Link to="" className="tab-link">live now</Link>
-                <Link to="" className="tab-link">official merch</Link>
-                <Link to="" className="tab-link">plus size</Link>
+               {[1,2,3,4,5].map((item,index)=>{
+                return( <div className="menu-item" key={index}
+                onMouseEnter={() => handleMenuHover(index)}
+                style={{borderBottom: activeSubMenu === index && "2.5px solid #000"}}
+                >
+                    <Link to="/product-listing" className="tab-link">shop now</Link>
+                   {activeSubMenu === index && 
+                   <div  className="submenu-wrapper" onMouseLeave={handleMenuLeave}> 
+                        <div className="heading">
+                        <p >shop by fabric</p>
+                        <p >shop by work</p>
+                        <p >shop by color</p>
+                        <p >shop by type</p>
+                        </div>
+                        
+                        <div className="submenus">
+                        {[1,2,3,4].map((item,index)=>{
+                            return(
+                                <div key={index} >
+                                    <Link to="/product-listing/wedding-sarees">Wedding Sarees</Link>
+                                    <Link to="product-listing/wedding-sarees">Banarasi Sarees</Link>
+                                    <Link to="product-listing/wedding-sarees">Party Wear Sarees</Link>
+                                </div>
+                            )
+                        })}
+                        </div>
+
+                        <div className="footer" style={{borderTop:"1px solid #f1f0f0"}}>
+                        <p >shop by fabric</p>
+                        <p >shop by work</p>
+                        <p >shop by color</p>
+                        <p >shop by type</p>
+                        </div>
+                   </div>}
+                </div>)
+               })}
             </Container>
         )
     }
-    return (<section className="header-section" style={{ position: "sticky", top: 0, zIndex: 3834, background: "#fff" }}>
+
+    const UserActions = () =>{
+       return( 
+       <div className="user-actions d-flex gap-md-4 gap-2">
+       <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Search</Tooltip>}>
+           <CiSearch className="icon"/>
+       </OverlayTrigger>
+       <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Sign In</Tooltip>}>
+           <BsPerson className="icon"/>
+       </OverlayTrigger>
+       <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">My Wishlist</Tooltip>}>
+           <BsStar className="icon"/>
+       </OverlayTrigger>
+       <OverlayTrigger overlay={<Tooltip id="tooltip-disabled">Cart</Tooltip>}>
+           <BsCart className="icon"/>
+       </OverlayTrigger>
+       </div>)
+    }
+    return (<section className="header-section" >
         {/* Top Header Wrapper */}
         <Container fluid className="desktop-header d-none d-md-block" >
-            <Container fluid style={{ borderBottom: "2px solid #eee" }}>
+            <Container fluid >
                 <Container>
                     <div className="mainHeaderWrapper d-flex justify-content-between align-items-center">
                         <Link to="/" className="col-1">
@@ -41,10 +98,10 @@ const Header = () => {
                             </div>
                         </Link>
                         <div className="Menus col-8">
-                            <TabComponent />
+                            <HeaderMenus />
                         </div>
-
-                    </div>
+                        <UserActions/>
+                       </div>
                 </Container>
             </Container>
         </Container>
@@ -53,25 +110,15 @@ const Header = () => {
             boxShadow: "0 2px 10px rgba(0, 0, 0, .08)",
             height: "56px"
         }}>
-            <div className="d-flex align-items-center">
-                <div className="brandLogo" style={{ width: "30px" }} onClick={handleMobileMenuOpen}>
-                    <img src="https://images.bewakoof.com/web/ic-web-head-hamburger.svg"
-                        width="100%"
-                        alt="Aora_logo" />
-                </div>
-                <Link to="/">
+                <GiHamburgerMenu className="icons" onClick={handleMobileMenuOpen}/>
+                  <Link to="/">
                     <div className="brandLogo" style={{ width: "50px" }}>
                         <img src="https://static.wixstatic.com/media/d5ac00_203b403d456d4d618b216ac6e5b97db1~mv2.png/v1/fill/w_108,h_108,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/AORA_LOGO-removebg-preview.png"
                             width="100%"
                             alt="Aora_logo" />
                     </div>
                 </Link>
-            </div>
-            <div className="d-flex gap-2 align-items-center">
-                <Link to="" className="menu-link">Login</Link>
-                <Link to="" className="menu-link">Wishlist</Link>
-                <Link to="" className="menu-link">Cart</Link>
-            </div>
+           <UserActions/>
         </Container>
 
         <Offcanvas className="d-block d-md-none" show={mobileMenu} onHide={handleMobileMenuClose}>
@@ -79,8 +126,7 @@ const Header = () => {
                 <Offcanvas.Title>Welcome Guest</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-                Some text as placeholder. In real life you can have the elements you
-                have chosen. Like, text, images, lists, etc.
+              
             </Offcanvas.Body>
         </Offcanvas>
 
