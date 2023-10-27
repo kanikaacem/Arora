@@ -3,34 +3,82 @@
 }
 
 /* Sticky Header */
-.desktop-header-sticky,
-.mobile-header-sticky {
+.header-section{
     position: sticky;
     top: 0;
-    background-color: #fff;
-    z-index: 100;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-    width: 100%;
+    z-index: 200;
+    background: #fff;
+    box-shadow: 0 8px 20px 0 rgba(0,0,0,.1);
 }
 
+.icon{
+    font-size: 1.5rem;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
 .categoryLink {
     text-decoration: none;
     color: #000000;
 }
 
 .menu-link {
-    text-decoration: none;
-    color: #000000;
+    /* text-decoration: none;
+    color: #000000; */
     font-size: 0.8rem;
 }
 
 .tab-link {
-    text-decoration: none;
-    color: #000000;
+    /* text-decoration: none;
+    color: #000000; */
     font-size: 1rem;
-    text-transform: uppercase;
+    text-transform: capitalize;
+    font-weight: 600;
 }
 
+.menu-item{
+    position: relative;
+}
+.submenu-wrapper{
+    background: #fff;
+    /* padding: 20px; */
+    top: 40px;
+    position: absolute;
+}
+ 
+.submenu-wrapper .heading ,.submenu-wrapper .footer{
+    display: flex;
+    /* flex-direction: column; */
+    text-decoration: none;
+    /* gap:1rem; */
+    padding:15px;
+    border-bottom:1px solid #f1f0f0;
+    
+}
+.submenu-wrapper .heading p,.submenu-wrapper .footer p{
+    text-transform: uppercase;
+    font-weight: 600;
+    width: 250px;
+    margin: 0;
+}
+.submenu-wrapper .footer p{
+    color: #ffa800;
+}
+
+.submenu-wrapper .submenus{
+    padding:15px;
+    display: flex;
+}
+.submenu-wrapper .submenus div{
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    gap:1rem;
+    width: 250px;
+
+}
 .HeaderSearchbar {
     outline: none;
     border: none;
@@ -203,6 +251,43 @@
     outline: none !important;
 }
 
+@media screen and (max-width:780px) {
+    .header-section{
+        position: relative;
+        top: 0;
+        background: #fff;
+    }
+    .icon{
+        font-size: 1rem;
+    }
+    
+}
+
+/* Product Filter*/
+/* ProductFilter.css */
+/* ProductFilter.css */
+/* Change the "after" button to a minus or plus sign in the Accordion header */
+.accordion-button::after {
+    content: "-" !important;
+    background-image: none;
+    background: none;
+    border: none;
+    box-shadow: none;
+    /* If you want to change it to a plus sign when the Accordion is expanded, you can use the :not(.collapsed) selector */
+  }
+  
+  .accordion-body{
+    background: none;
+    border: none;
+    box-shadow: none;
+  }
+  /* Change the "after" button to a plus sign when the Accordion is expanded */
+  .accordion-button:not(.collapsed)::after {
+    content: "+" !important;
+    background-image: none;
+
+  }
+  
 /*Modal Border radius */
 .modal-content {
     border-radius: 0px;

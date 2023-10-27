@@ -2,11 +2,9 @@ import { useState } from 'react';
 import { Button, Modal, Form as BForm } from 'react-bootstrap';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
-function Example() {
-    const [show, setShow] = useState(true);
+function Signup({openForm,setOpenForm}) {
     const [form, setForm] = useState("login");
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleClose = () => setOpenForm(false);
     const changeForm = (formName) => setForm(formName)
 
     /*Login Form */
@@ -25,7 +23,7 @@ function Example() {
 
     return (
         <Modal
-            show={show}
+            show={openForm}
             onHide={handleClose}
             backdrop="static"
             keyboard={false}
@@ -184,4 +182,4 @@ function Example() {
     );
 }
 
-export default Example;
+export default Signup;
