@@ -29,7 +29,7 @@ const Header = () => {
     }
     return (<section className="header-section" style={{ position: "sticky", top: 0, zIndex: 3834, background: "#fff" }}>
         {/* Top Header Wrapper */}
-        <Signup />
+        {/* <Signup /> */}
         <Container fluid className="desktop-header d-none d-md-block" >
             <Container fluid style={{ borderBottom: "2px solid #eee" }}>
                 <Container>
